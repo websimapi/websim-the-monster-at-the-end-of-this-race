@@ -18,14 +18,18 @@ class Book {
       page.className = 'page';
       page.id = `page-${index}`;
       
+      // Create image element with text content as src
       const img = document.createElement('img');
       img.id = `img-${index}`;
-      img.src = `data:text/plain;charset=utf-8,${encodeURIComponent(content)}`;
-      img.style.display = 'none';
+      img.src = content; // Set the raw text as src
+      img.alt = content; // Set alt text for accessibility
       
+      // Create text div
       const text = document.createElement('div');
+      text.className = 'page-text';
       text.textContent = content;
       
+      // Add image and text to page
       page.appendChild(img);
       page.appendChild(text);
       
